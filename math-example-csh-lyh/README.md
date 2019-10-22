@@ -1,0 +1,3 @@
+- 달랩 코딩도장 10/22
+- 참여자: 최수형, 이영한
+- [프로그래머스 모의고사 문제](https://programmers.co.kr/learn/courses/30/lessons/42840)
