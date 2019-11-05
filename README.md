@@ -17,3 +17,9 @@
 [체육복](http://j.mp/31YNLb9) 문제
 
 `peuniforms-ㅇㅇㅇ`
+
+## 2019-11-05 (화)
+
+[K번째수](http://j.mp/2NH7GpS) 문제
+
+`knumber-ㅇㅇㅇ`
