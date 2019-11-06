@@ -3,17 +3,11 @@ export default (participant, completion) => {
     acc[crr] ? acc[crr] += 1 : acc[crr] = 1 
     return acc;
   }, {})
-  let loserIdx = 0;
-  participant.some((name,i) => {
-    if(completionObj[name]){
-      completion[name] -= 1;
-      return false;
-    }
-    else {
-      loserIdx = i;
-      return true;
-    } 
+  let result = '';
+  participant.forEach( name => {
+    if(completionObj[name]) completionObj[name] -=1 
+    else result = name; 
   })
 
-  return participant[loserIdx]; 
+  return result;
 }
