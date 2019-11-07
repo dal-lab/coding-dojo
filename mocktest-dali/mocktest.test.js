@@ -6,42 +6,34 @@
 // 2번은 8개로 반복 
 // 3번은 10개 Set로 반복 
 const getScoreSet =  (answer, index) => {
+
   const P1_ANSWER_SET = [1,2,3,4,5];
   const P2_ANSWER_SET = [2,1,2,3,2,4,2,5];
   const P3_ANSWER_SET = [3,3,1,1,2,2,4,4,5,5];
+  const ANSWER_SET = [
+    P1_ANSWER_SET,
+    P2_ANSWER_SET,
+    P3_ANSWER_SET,
+  ];
+
 
   const getScore = (bool) => bool ? 1 : 0 
+  const isCorrect = (index, answer, set) => (set[index % set.length] === answer) 
 
-  const isCorrectP1 = getScore(P1_ANSWER_SET[index % 5] === answer)
-  const isCorrectP2 = getScore(P2_ANSWER_SET[index % 8] === answer)
-  const isCorrectP3 = getScore(P3_ANSWER_SET[index % 10] === answer)
-  return [isCorrectP1, isCorrectP2, isCorrectP3];
+  return ANSWER_SET.map(set => getScore(isCorrect(index, answer, set)));
 }
 
 const getHighScorer = (answers) => {
-  const scoresObj = { s1: 0, s2: 0, s3: 0};
-  const resultObj =  answers.reduce((acc, cur, i) => {
-    const [s1, s2, s3] = getScoreSet(cur, i) 
-    return {
-      s1: acc.s1 + s1, 
-      s2: acc.s2 + s2,
-      s3: acc.s3 + s3 
-    }
-  },scoresObj)
+  const totalScoreList =  answers.reduce((acc, cur, i) => {
+    const scoreList = getScoreSet(cur, i) 
+    return acc.map((v,i) => v + scoreList[i])
+  }, [0,0,0])
 
-  const mapToNum = {
-    s1: 1,
-    s2: 2,
-    s3: 3
-  }
-  const rankingResult = Object.entries(resultObj).sort(([keyA,valueA], [keyB,valueB]) => {
-    const gap = valueB - valueA
-    if(gap === 0) return mapToNum[keyA] - mapToNum[keyB] 
-    else return gap
-  })
-  .filter(([k, v],i,array) => v === array[0][1]).map(([k,v])=> mapToNum[k])
 
-  return rankingResult;
+   const max = Math.max(...totalScoreList)
+   const rankingList = totalScoreList.map((v, i) => v === max ? i + 1 : 0).filter(v =>v!==0)
+
+   return rankingList;
 }
 
 
