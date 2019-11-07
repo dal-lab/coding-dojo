@@ -1,13 +1,14 @@
 export default (participant, completion) => {
-  const completionObj = completion.reduce((acc, crr) => {
-    acc[crr] ? acc[crr] += 1 : acc[crr] = 1 
-    return acc;
-  }, {})
-  let result = '';
-  participant.forEach( name => {
-    if(completionObj[name]) completionObj[name] -=1 
-    else result = name; 
-  })
+  const completionObj = completion.reduce((acc, cur) => ({
+    ...acc,
+    [cur]: (acc[cur] || 0) + 1,
+  }), {});
 
-  return result;
+  let completionCount = completion.length; 
+
+  return participant.reduce((acc, cur) => {
+    return  acc['result'] ? acc
+            : acc[cur] ? { ...acc, [cur]: acc[cur] -1} 
+            : {'result': cur} 
+  },completionObj).result;
 }
