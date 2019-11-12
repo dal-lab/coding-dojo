@@ -7,7 +7,7 @@ def solution(month, day):
 
 
 def sum_of_days(month):
-    return sum(DAYS_OF_MONTH[i] for i in range(month))
+    return sum(DAYS_OF_MONTH[:month])
 
 
 def get_weekday(days):
