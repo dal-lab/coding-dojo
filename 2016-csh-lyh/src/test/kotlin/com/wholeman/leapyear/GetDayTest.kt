@@ -6,14 +6,14 @@ import org.junit.Test
 val daysOfEachMonth = arrayOf(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 val weeks = arrayOf("THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED")
 
-fun getDayOfTheWeek(a: Int, b: Int): String {
-    return weeks[(getFirstDayOfMonth(a) - 1 + b) % 7]
+fun getDayOfTheWeek(month: Int, day: Int): String {
+    return weeks[(getFirstDayOfMonth(month) - 1 + day) % 7]
 }
 
-fun getFirstDayOfMonth(a: Int): Int {
-    return if (a == 1) 1 else 1 + daysOfEachMonth
-            .sliceArray(0 until a - 1)
-            .reduce { acc, cur -> acc + cur }
+fun getFirstDayOfMonth(month: Int): Int {
+    return if (month == 1) 1 else 1 + daysOfEachMonth
+            .sliceArray(0 until month - 1)
+            .reduce { sum, days -> sum + days }
 }
 
 class GetDayTest {
