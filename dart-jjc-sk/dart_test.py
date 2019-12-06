@@ -10,11 +10,9 @@ def score(hit):
 
 
 def dart_to_hits(dart_result):
-    tokens = re.findall('[0-9]+[SDT][*#]?', dart_result)
+    tokens = re.findall('([0-9]+)([SDT])([*#]?)', dart_result)
     hits = []
-    for token in tokens:
-        m = re.search('([0-9]+)([SDT])(.?)', token)
-        number, power, option = m.groups()
+    for number, power, option in tokens:
         coefficient = {'': 1, '*': 2, '#': -1}[option]
         if hits and option == '*':
             last_token = hits.pop()
