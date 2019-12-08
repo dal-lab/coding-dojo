@@ -7,48 +7,25 @@ fun calculateScore(dartResult: String): Int {
     return calculate(results)
 }
 
-fun splitResult(dartResult: String): Array<String> {
-    var temp = ""
-    var results = mutableListOf<String>()
-    dartResult.forEach {
-        temp += it
-        if (it == 'S' || it == 'D' || it == 'T' || it == '*' || it == '#') {
-            results.add(temp)
-            temp = ""
+fun splitResult(dartResult: String): Array<String> =
+    dartResult.fold(Pair(emptyArray<String>(), "")) { (parts, temp), c ->
+        if ("SDT*#".contains(c)) {
+            Pair(parts + arrayOf(temp + c), "")
+        } else {
+            Pair(parts, temp + c)
         }
-    }
+    }.first
 
-    return results.toTypedArray()
-}
-
-
-fun calculate(results: Array<String>): Int {
-    val processedResult = mutableListOf<Int>()
-
-    results.forEachIndexed { index, it ->
-        if (it.last() == 'S') {
-            processedResult.add(it.substringBeforeLast('S').toInt())
-        }
-
-        if (it.last() == 'D') {
-            processedResult.add(it.substringBeforeLast('D').toDouble().pow(2).toInt())
-        }
-
-        if (it.last() == 'T') {
-            processedResult.add(it.substringBeforeLast('T').toDouble().pow(3).toInt())
-        }
-
-        if (it == "*") {
-            processedResult[processedResult.lastIndex] *= 2
-            if (processedResult.size >= 2) {
-                processedResult[processedResult.lastIndex - 1] *= 2
+fun calculate(results: Array<String>): Int =
+    results.fold(emptyList<Int>()) { scores, part ->
+        when (part) {
+            "*" -> scores.dropLast(2) + scores.takeLast(2).map { it * 2 }
+            "#" -> scores.dropLast(1) + scores.takeLast(1).map { it * -1 }
+            else -> {
+                val c = part.last()
+                val number = part.substringBeforeLast(c).toDouble()
+                val score = number.pow("SDT".indexOf(c) + 1).toInt()
+                scores.plus(score)
             }
         }
-
-        if (it == "#") {
-            processedResult[processedResult.lastIndex] *= -1
-        }
-    }
-
-    return processedResult.sum()
-}
+    }.sum()
