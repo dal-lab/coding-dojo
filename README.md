@@ -47,3 +47,9 @@
 [다트 게임](http://j.mp/2DNnp1Z) 문제
 
 `dart-ㅇㅇㅇ`
+
+## 2019-12-10 (화)
+
+[실패율](http://j.mp/2P9jjaM) 문제
+
+`failurerate-ㅇㅇㅇ`
