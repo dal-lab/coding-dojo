@@ -5,27 +5,22 @@ defmodule Budget do
     func_x(total_budget, request_from_departments, 0)
   end
 
-  def func_x(total_budget, request_from_departments, acc) do
-    if Enum.count(request_from_departments) == 1 do
-
-      [head] = request_from_departments
-      if total_budget >= head do
-        acc + 1
-      else
-        acc
-      end
-
+  def func_x(current_budget, [head], number_of_department) do
+    if current_budget >= head do
+      number_of_department + 1
     else
-
-      [head | tail] = request_from_departments
-      if total_budget < head do
-        acc
-      else
-        func_x(total_budget - head, tail, acc + 1)
-      end
+      number_of_department
     end
-
   end
+
+  def func_x(current_budget, [head | tail], number_of_department) do
+    if current_budget < head do
+      number_of_department
+    else
+      func_x(current_budget - head, tail, number_of_department + 1)
+    end
+  end
+
 end
 
 defmodule BudgetTest do
