@@ -5,22 +5,21 @@ defmodule Budget do
     func_x(total_budget, request_from_departments, 0)
   end
 
-  def func_x(current_budget, [head], number_of_department) do
-    if current_budget >= head do
-      number_of_department + 1
-    else
-      number_of_department
-    end
+  def func_x(current_budget, [head], number_of_department) when current_budget >= head do
+    number_of_department + 1
+  end
+
+  def func_x(_, [_], number_of_department) do
+    number_of_department
+  end
+
+  def func_x(current_budget, [head | _], number_of_department) when current_budget < head do
+    number_of_department
   end
 
   def func_x(current_budget, [head | tail], number_of_department) do
-    if current_budget < head do
-      number_of_department
-    else
-      func_x(current_budget - head, tail, number_of_department + 1)
-    end
+    func_x(current_budget - head, tail, number_of_department + 1)
   end
-
 end
 
 defmodule BudgetTest do
