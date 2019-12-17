@@ -2,7 +2,7 @@ ExUnit.start
 
 defmodule Budget do
   def max_number_of_department_we_can_support(total_budget, request_from_departments) do
-    func_x(total_budget, request_from_departments, 0)
+    func_x(total_budget, Enum.sort(request_from_departments), 0)
   end
 
   def func_x(current_budget, [head], number_of_department) when current_budget >= head do
@@ -27,6 +27,7 @@ defmodule BudgetTest do
 
   test "find max number of department we can support" do
     assert Budget.max_number_of_department_we_can_support(9, [1,3,2,5,4]) == 3
+    assert Budget.max_number_of_department_we_can_support(9, [5,3,2,1,4]) == 3
     assert Budget.max_number_of_department_we_can_support(10, [2,2,3,3]) == 4
 
     assert Budget.max_number_of_department_we_can_support(1, [1]) == 1
@@ -39,5 +40,4 @@ defmodule BudgetTest do
     assert Budget.func_x(3, [1, 2], 0) == 2
     assert Budget.func_x(1, [1], 0) == 1
   end
-
 end
