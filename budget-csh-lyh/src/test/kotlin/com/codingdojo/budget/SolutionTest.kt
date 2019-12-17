@@ -11,7 +11,7 @@ import org.junit.Test
 
 tailrec fun solution(d: IntArray, budget: Int): Int = when {
     d.fold(0, { total, next -> total + next }) <= budget -> d.size
-    else -> solution(d.dropLast(1).toIntArray(), budget)
+    else -> solution(d.sortedArray().dropLast(1).toIntArray(), budget)
 }
 
 class SolutionTest {
@@ -19,6 +19,7 @@ class SolutionTest {
     @Test
     fun `it returns maximum supportable department count`() {
         assertThat(solution(intArrayOf(1, 3, 2, 5, 4), 9)).isEqualTo(3)
+        assertThat(solution(intArrayOf(1, 4, 2, 4, 3), 10)).isEqualTo(4)
         assertThat(solution(intArrayOf(2, 2, 3, 3), 10)).isEqualTo(4)
     }
 }
