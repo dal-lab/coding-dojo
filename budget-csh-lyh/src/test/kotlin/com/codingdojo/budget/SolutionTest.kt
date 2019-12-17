@@ -9,17 +9,17 @@ import org.junit.Test
  * E-Mail : wholeman.dev@gmail.com
  */
 
-tailrec fun solution(d: IntArray, budget: Int): Int = when {
+tailrec fun solution(d: Collection<Int>, budget: Int): Int = when {
     d.fold(0, { total, next -> total + next }) <= budget -> d.size
-    else -> solution(d.sortedArray().dropLast(1).toIntArray(), budget)
+    else -> solution(d.sorted().dropLast(1), budget)
 }
 
 class SolutionTest {
 
     @Test
     fun `it returns maximum supportable department count`() {
-        assertThat(solution(intArrayOf(1, 3, 2, 5, 4), 9)).isEqualTo(3)
-        assertThat(solution(intArrayOf(1, 4, 2, 4, 3), 10)).isEqualTo(4)
-        assertThat(solution(intArrayOf(2, 2, 3, 3), 10)).isEqualTo(4)
+        assertThat(solution(mutableListOf(1, 3, 2, 5, 4), 9)).isEqualTo(3)
+        assertThat(solution(mutableListOf(1, 4, 2, 4, 3), 10)).isEqualTo(4)
+        assertThat(solution(mutableListOf(2, 2, 3, 3), 10)).isEqualTo(4)
     }
 }
