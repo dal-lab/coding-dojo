@@ -53,3 +53,9 @@
 [실패율](http://j.mp/2P9jjaM) 문제
 
 `failurerate-ㅇㅇㅇ`
+
+## 2019-12-17 (수)
+
+[예산](http://j.mp/2Z6Lvih) 문제
+
+`budget-ㅇㅇㅇ`
