@@ -1,0 +1,18 @@
+{
+  "name": "peuniforms-dali",
+  "version": "1.0.0",
+  "description": "수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.",
+  "main": "peuniforms.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  }
+}
