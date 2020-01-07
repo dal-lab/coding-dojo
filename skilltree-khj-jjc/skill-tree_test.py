@@ -24,26 +24,3 @@ def test_solution():
     assert is_valid("CBD", "B") == False
     assert is_valid("CD", "AF") == True
 
-
-"""
-DBC    EDCAB
-
-142
-
-
-CBD    AECB
-
-DBC    BCEA
-
--1 0 1
-
-DBC    B
-
--1 0 -1
-
-DC    FA
-
--1 -1 
-
-
-"""
