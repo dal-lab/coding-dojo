@@ -54,8 +54,32 @@
 
 `failurerate-ㅇㅇㅇ`
 
-## 2019-12-17 (수)
+## 2019-12-17 (화)
 
 [예산](http://j.mp/2Z6Lvih) 문제
 
 `budget-ㅇㅇㅇ`
+
+## 2020-01-07 (화)
+
+[스킬트리](http://j.mp/2vu0JmC) 문제
+
+`skilltree-ㅇㅇㅇ`
+
+## 2020-01-14 (화)
+
+[소수 만들기](http://j.mp/2U2ww8r) 문제
+
+`primenumbers-ㅇㅇㅇ`
+
+## 2020-01-21 (화)
+
+[쇠막대기](http://j.mp/2U2J9QN) 문제
+
+`ironstick-ㅇㅇㅇ`
+
+## 2020-01-28 (화)
+
+[전화번호 목록](http://j.mp/2U72ccH) 문제
+
+`phonenumbers-ㅇㅇㅇ`
