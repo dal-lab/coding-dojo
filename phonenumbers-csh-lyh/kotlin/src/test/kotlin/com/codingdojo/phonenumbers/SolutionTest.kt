@@ -13,7 +13,7 @@ fun solution(phone_book: Array<String>): Boolean {
     return step(phone_book.first(), phone_book.drop(1))
 }
 
-fun <T: String> Collection<T>.hasPrefix(prefix: String) = any { it.startsWith(prefix) }
+fun <T: String> Collection<T>.hasPrefix(prefix: T) = any { it.startsWith(prefix) }
 
 class SolutionTest {
 
