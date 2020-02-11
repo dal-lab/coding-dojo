@@ -83,3 +83,15 @@
 [전화번호 목록](http://j.mp/2U72ccH) 문제
 
 `phonenumbers-ㅇㅇㅇ`
+
+## 2020-02-07 (화)
+
+[짝지어 제거하기](http://j.mp/2ShXTKd) 문제
+
+`deletepairs-ㅇㅇㅇ`
+
+## 2020-02-11 (화)
+
+[다리를 지나는 트럭](http://j.mp/2tSBYjC) 문제
+
+`trucks-ㅇㅇㅇ`
