@@ -95,3 +95,9 @@
 [다리를 지나는 트럭](http://j.mp/2tSBYjC) 문제
 
 `trucks-ㅇㅇㅇ`
+
+## 2020-02-18 (화)
+
+[오픈채팅방](https://j.mp/3nB7aNu) 문제
+
+`openchat-ㅇㅇㅇ`
